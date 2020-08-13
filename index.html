@@ -10,11 +10,8 @@
             box-sizing: border-box;
             padding: 1em;
         }
-        p, input{
-            font-size: 50px;
-        }
     	.input{
-        position:absolute
+            position:absolute
     	}
         #yes:hover{
             background:lightblue;
@@ -23,11 +20,40 @@
             margin-top: 10em;
             opacity: 0.7;
         }
+        #oke, #reply{
+            background-color: pink;
+        }
+        #yes{
+            background:url(./img/pink-cloud.png) no-repeat;
+            background-size: cover;
+            cursor:pointer;
+            border:none;
+            width:auto;
+            height: 59px;
+        }
+        #yes:hover 
+        {   
+            background:url(./img/pink-cloud.png) no-repeat;
+            background-size: cover;
+            cursor:pointer;
+            border:none;
+            width:auto;
+            height: 59px;
+        }
+        #no{
+            background:url(./img/blue-cloud.svg) no-repeat;
+            background-size: cover;
+            cursor:pointer;
+            border:none;
+            width:auto;
+            height: 109px;
+        }
         @media only screen and (max-width: 1024px) {
             .main{
                 padding-bottom: 26em;
             }
         }
+
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href=" https://fonts.googleapis.com/css?family=Pacifico" />
@@ -46,19 +72,21 @@
                     <h3 class="card-title">Trả lời tí nha ^^</h3>
                     <span>Can you answer the question?</span>
                     <br/> <br/>
-                    <input style="background-color: pink; " type="button" id="oke" value="OK" class="btn btn-lg btn-primary" >
+                    <input type="button" id="oke" value="OK" class="btn btn-lg btn-primary" >
                     </div>
                 </div>
                 </div>
             </div>
         </div>
+
         <div id="content" >
             <h1>Cậu thích tớ đúng không?</h1>
             <h5>Do you love me?</h5>
-            <br/>
-            <input type="button" id="yes" value="Yes" onclick="yesAgree()" class="btn btn-secondary btn-lg">
-            <input class="input btn btn-lg btn-primary" type="button" id="no" value="No" onmouseover="noAgree()" >
+            <br/> <br/> 
+            <input type="button" id="yes" value="    Yes    " onclick="yesAgree()" class="btn btn-secondary btn-lg">
+            <input class="input btn btn-lg btn-primary" type="button" id="no" value="       No      " onmouseover="noAgree()" >
         </div>
+
         <div id="why">
             <h1>Tại sao cậu thích tớ ó ('0')</h1>
             <div class="input-group mb-3">
@@ -68,8 +96,9 @@
                 <input type="text" class="form-control" placeholder="Tell me why" aria-label="Username" aria-describedby="basic-addon1" onmousemove=textGenerate() id="txtReason">
                 <br/> 
             </div>
-            <input style="background-color: pink; " type="button" id="reply" value="Gửi tớ nha" class="btn btn-lg btn-primary" onclick="reply()">
+            <input type="button" id="reply" value="Gửi tớ nha" class="btn btn-lg btn-primary" onclick="reply()">
         </div>
+        
         <div id="replyNe">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row no-gutters">
@@ -86,64 +115,70 @@
             </div>
         </div>
     </div>
-<script>
-    let yes = document.getElementById("yes");
-    let no = document.getElementById("no");
-    function yesAgree() {
-        var audio = new Audio('sound/sound.mp3');
-        audio.play();
-        $("#content").hide();
-        $("#why").show();
-        $("#replyNe").hide();
-    }
-    function reply() {
-        var audio = new Audio('sound/marry-you.mp3');
-        audio.play();
-        $("#content").hide();
-        $("#why").hide();
-        $("#replyNe").show();
-    }
-    function noAgree() {
-        var audio = new Audio('sound/duck.mp3');
-        audio.play();
-        let x = Math.round(Math.random() * window.innerWidth);
-        let y = Math.round(Math.random() * window.innerHeight);
-        no.style.left = x + 'px';
-        no.style.top = y + 'px';
-    }
 
-    function textGenerate() {
-        var n = "";
-        var text = " Tại vì cậu quá dễ thương ó hehe                                ";
-        var a = Array.from(text);
-        var textVal = $('#txtReason').val() ? $('#txtReason').val() : "";
-        var count = textVal.length;
-        if (count > 0) {
-            for (let i = 1; i <= count; i++) {
-                n = n + a[i];
-                if (i == text.length + 1) {
-                    $('#txtReason').val("");
-                    n = "";
-                    break;
+    <script>
+        let yes = document.getElementById("yes");
+        let no = document.getElementById("no");
+        let yesAudio = new Audio('sound/sound.mp3');
+        let noAudio = new Audio('sound/duck.mp3');
+        let replyAudio = new Audio('sound/marry-you.mp3');
+        
+        function yesAgree() {
+            yesAudio.play();
+            $("#content").hide();
+            $("#why").show();
+            $("#replyNe").hide();
+        }
+
+        function reply() {
+            yesAudio.pause();
+            replyAudio.play();
+            $("#content").hide();
+            $("#why").hide();
+            $("#replyNe").show();
+        }
+
+        function noAgree() {
+            noAudio.play();
+            let x = Math.round(Math.random() * window.innerWidth);
+            let y = Math.round(Math.random() * window.innerHeight);
+            no.style.left = x + 'px';
+            no.style.top = y + 'px';
+        }
+
+        function textGenerate() {
+            var n = "";
+            var text = " Tại vì cậu quá dễ thương ó hehe                                ";
+            var a = Array.from(text);
+            var textVal = $('#txtReason').val() ? $('#txtReason').val() : "";
+            var count = textVal.length;
+            if (count > 0) {
+                for (let i = 1; i <= count; i++) {
+                    n = n + a[i];
+                    if (i == text.length + 1) {
+                        $('#txtReason').val("");
+                        n = "";
+                        break;
+                    }
                 }
             }
+            $('#txtReason').val(n);
+            setTimeout("textGenerate()", 1);
         }
-        $('#txtReason').val(n);
-        setTimeout("textGenerate()", 1);
-    }
-    $(document).ready(function() {
-        $('#content').hide();
-        $("#why").hide();
-        $("#replyNe").hide();
-        
-        $("#oke").click(function(){
-            $("#content").show();
-            $("#first-content").hide();
+
+        $(document).ready(function() {
+            $('#content').hide();
             $("#why").hide();
             $("#replyNe").hide();
-        });
-    })
+            
+            $("#oke").click(function(){
+                $("#content").show();
+                $("#first-content").hide();
+                $("#why").hide();
+                $("#replyNe").hide();
+            });
+        })
 
-</script>
+    </script>
 </body>
 </html>
