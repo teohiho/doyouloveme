@@ -5,7 +5,7 @@
     <title>Do You Love Me</title>
     <style>  
         body{
-            background: url("https://i.pinimg.com/originals/f1/6f/ed/f16fedc86686146624897737cf4338d8.jpg")no-repeat;
+            background: url("./img/clound.jpg")no-repeat;
             background-size: cover;
             box-sizing: border-box;
         }
@@ -18,21 +18,80 @@
         #yes:hover{
             background:lightblue;
         }
-        p{
-            color:red;
-
+        .main{
+            margin-top: 10em;
+            opacity: 0.7;
         }
-</style>
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href=" https://fonts.googleapis.com/css?family=Pacifico" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<p>DO YOU LOVE ME?</p>
-<input type="button" id="yes" value="yes" onclick="yesAgree()">
-<input class="input" type="button" id="no" value="no" onmouseover="noAgree()">
+    <div class="d-flex justify-content-center main">
+        <div id="first-content">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="./img/cat-cute.jpg" class="card-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h3 class="card-title">Trả lời tí nha ^^</h3>
+                    <span>Can you answer the question?</span>
+                    <br/> <br/>
+                    <input style="background-color: pink; " type="button" id="oke" value="OK" class="btn btn-lg btn-primary" >
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <h1>Cậu thích tớ đúng không?</h1>
+            <h5>Do you love me?</h5>
+            <br/>
+            <input type="button" id="yes" value="Yes" onclick="yesAgree()" class="btn btn-secondary btn-lg">
+            <input class="input btn btn-lg btn-primary" type="button" id="no" value="No" onmouseover="noAgree()" >
+        </div>
+        <div id="why">
+            <h1>Tại sao cậu thích tớ ó ('0')</h1>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><3</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Tell me why" aria-label="Username" aria-describedby="basic-addon1" onmousemove=textGenerate() id="txtReason">
+                <br/> 
+            </div>
+            <input style="background-color: pink; " type="button" id="reply" value="Gửi tớ nha" class="btn btn-lg btn-primary" onclick="reply()">
+        </div>
+        <div id="replyNe">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="./img/cat-cute.jpg" class="card-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h3 class="card-title">Tớ biết mà ^^ cảm ơn cậu. Love u 3000 <3</h3>
+                    <span>Thank you.</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <script>
     let yes = document.getElementById("yes");
     let no = document.getElementById("no");
     function yesAgree() {
-        alert("thương thương <3");
+        $("#content").hide();
+        $("#why").show();
+        $("#replyNe").hide();
+    }
+    function reply() {
+        $("#content").hide();
+        $("#why").hide();
+        $("#replyNe").show();
     }
     function noAgree() {
         let x = Math.round(Math.random() * window.innerWidth);
@@ -40,6 +99,39 @@
         no.style.left = x + 'px';
         no.style.top = y + 'px';
     }
+
+    function textGenerate() {
+        var n = "";
+        var text = " Tại vì cậu quá dễ thương ó hehe                                ";
+        var a = Array.from(text);
+        var textVal = $('#txtReason').val() ? $('#txtReason').val() : "";
+        var count = textVal.length;
+        if (count > 0) {
+            for (let i = 1; i <= count; i++) {
+                n = n + a[i];
+                if (i == text.length + 1) {
+                    $('#txtReason').val("");
+                    n = "";
+                    break;
+                }
+            }
+        }
+        $('#txtReason').val(n);
+        setTimeout("textGenerate()", 1);
+    }
+    $(document).ready(function() {
+        $('#content').hide();
+        $("#why").hide();
+        $("#replyNe").hide();
+        
+        $("#oke").click(function(){
+            $("#content").show();
+            $("#first-content").hide();
+            $("#why").hide();
+            $("#replyNe").hide();
+        });
+    })
+
 </script>
 </body>
 </html>
