@@ -97,15 +97,15 @@
         </div>
 
         <div id="why">
-            <h1>Tại sao cậu thích tớ ó ('0')</h1>
+            <h1>Tại sao cậu thích tớ ó ('0'). </h1>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1"><3</span>
+                    <span class="input-group-text" id="basic-addon1">♥️</span>
                 </div>
-                <input type="text" class="form-control" placeholder="Tell me why" aria-label="Username" aria-describedby="basic-addon1" onmousemove=textGenerate() id="txtReason">
+                <input type="text" class="form-control" placeholder="Tell me why you love me" aria-label="Username" aria-describedby="basic-addon1" onmousemove=textGenerate() id="txtReason">
                 <br/>
             </div>
-            <input type="button" id="reply" value="Gửi tớ nha" class="btn btn-lg btn-primary" onclick="reply()">
+            <input type="button" id="reply" value="Send me" class="btn btn-lg btn-primary" onclick="reply()">
         </div>
 
         <div id="replyNe">
@@ -161,7 +161,7 @@
 
         function textGenerate() {
             var n = "";
-            var text = " Tại vì cậu quá dễ thương ó hehe                                ";
+            var text = " Tại vì cậu quá dễ thương ó hehe. You are so cute.                              ";
             var a = Array.from(text);
             var textVal = $('#txtReason').val() ? $('#txtReason').val() : "";
             var count = textVal.length;
