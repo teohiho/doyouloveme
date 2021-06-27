@@ -1,120 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Do You Love Me</title>
-    <style>  
-        body{
+    <style>
+        body {
             background: url("./img/cloud.jpg")no-repeat;
             background-size: cover;
             box-sizing: border-box;
             padding: 1em;
         }
-    	.input{
-            position:absolute
-    	}
-        #yes:hover{
-            background:lightblue;
+        
+        .input {
+            position: absolute
         }
-        .main{
+        
+        #yes:hover {
+            background: lightblue;
+        }
+        
+        .main {
             margin-top: 10em;
             opacity: 0.7;
         }
-        #oke, #reply{
+        
+        #oke,
+        #reply {
             background-color: pink;
         }
-        #yes{
-            background:url(./img/pink-cloud.png) no-repeat;
+        
+        #yes {
+            background: url(./img/pink-cloud.png) no-repeat;
             background-size: cover;
-            cursor:pointer;
-            border:none;
-            width:auto;
+            cursor: pointer;
+            border: none;
+            width: auto;
             height: 59px;
         }
-        #yes:hover 
-        {   
-            background:url(./img/pink-cloud.png) no-repeat;
+        
+        #yes:hover {
+            background: url(./img/pink-cloud.png) no-repeat;
             background-size: cover;
-            cursor:pointer;
-            border:none;
-            width:auto;
+            cursor: pointer;
+            border: none;
+            width: auto;
             height: 59px;
         }
-        #no{
-            background:url(./img/blue-cloud.svg) no-repeat;
+        
+        #no {
+            background: url(./img/blue-cloud.svg) no-repeat;
             background-size: cover;
-            cursor:pointer;
-            border:none;
-            width:auto;
+            cursor: pointer;
+            border: none;
+            width: auto;
             height: 109px;
         }
+        
         @media only screen and (max-width: 1024px) {
-            .main{
+            .main {
                 padding-bottom: 26em;
             }
         }
-
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href=" https://fonts.googleapis.com/css?family=Pacifico" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+
 <body>
     <div class="d-flex justify-content-center main">
         <div id="first-content">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="./img/cat-cute.jpg" class="card-img" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                    <h3 class="card-title">Trả lời tí nha ^^</h3>
-                    <span>Can you answer the question?</span>
-                    <br/> <br/>
-                    <input type="button" id="oke" value="OK" class="btn btn-lg btn-primary" >
+                    <div class="col-md-4">
+                        <img src="./img/cat-cute.jpg" class="card-img" alt="...">
                     </div>
-                </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-title">Trả lời tí nha ^^</h3>
+                            <span>Can you answer the question?</span>
+                            <br/> <br/>
+                            <input type="button" id="oke" value="OK" class="btn btn-lg btn-primary">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div id="content" >
+        <div id="content">
             <h1>Cậu thích tớ đúng không?</h1>
             <h5>Do you love me?</h5>
-            <br/> <br/> 
+            <br/> <br/>
             <input type="button" id="yes" value="    Yes    " onclick="yesAgree()" class="btn btn-secondary btn-lg">
-            <input class="input btn btn-lg btn-primary" type="button" id="no" value="       No      " onmouseover="noAgree()" >
+            <input class="input btn btn-lg btn-primary" type="button" id="no" value="       No      " onmouseover="noAgree()">
         </div>
 
         <div id="why">
             <h1>Tại sao cậu thích tớ ó ('0')</h1>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1"><3</span>
+                    <span class="input-group-text" id="basic-addon1"><3</span>
                 </div>
                 <input type="text" class="form-control" placeholder="Tell me why" aria-label="Username" aria-describedby="basic-addon1" onmousemove=textGenerate() id="txtReason">
-                <br/> 
+                <br/>
             </div>
             <input type="button" id="reply" value="Gửi tớ nha" class="btn btn-lg btn-primary" onclick="reply()">
         </div>
-        
+
         <div id="replyNe">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="./img/cat-cute.jpg" class="card-img" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                    <h3 class="card-title">Tớ biết mà ^^ cảm ơn cậu. Love u 3000 <3</h3>
-                    <span>Thank you.</span>
+                    <div class="col-md-4">
+                        <img src="./img/cat-cute.jpg" class="card-img" alt="...">
                     </div>
-                </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-title">Tớ biết mà ^^ cảm ơn cậu. Love u 3000
+                                <3</h3>
+                                    <span>I knew you'd say that. Thank you.</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <footer class="footer" style="position: fixed; left: 0; bottom: 0; width: 100%; text-align: center; font-size: 14px;">
+        <p>&copy; Copyright 2020 teohiho</p>
+    </footer>
 
     <script>
         let yes = document.getElementById("yes");
@@ -122,7 +135,7 @@
         let yesAudio = new Audio('sound/sound.mp3');
         let noAudio = new Audio('sound/duck.mp3');
         let replyAudio = new Audio('sound/marry-you.mp3');
-        
+
         function yesAgree() {
             yesAudio.play();
             $("#content").hide();
@@ -170,15 +183,15 @@
             $('#content').hide();
             $("#why").hide();
             $("#replyNe").hide();
-            
-            $("#oke").click(function(){
+
+            $("#oke").click(function() {
                 $("#content").show();
                 $("#first-content").hide();
                 $("#why").hide();
                 $("#replyNe").hide();
             });
         })
-
     </script>
 </body>
+
 </html>
